@@ -14,7 +14,7 @@
         <div class="nav-bar">
             <p class="title">WorkTogether</p>
             <ul>
-                <li><a href="http://"><img src="{{ asset('img/serveur.png') }}">Serveurs</a></li>
+                <li><a href="{{ url('') }}"><img src="{{ asset('img/serveur.png') }}">Offres</a></li>
                 <li><a href="http://"><img src="{{ asset('img/une-entente.png') }}">Partenaire</a></li>
             </ul>
             <a class="client" href="/login">Espace Client</a>
@@ -32,14 +32,14 @@
             <p><ion-icon name="cloud"></ion-icon> 1 Rac</p>
             <p><ion-icon name="hardware-chip"></ion-icon> Sécuriser !</p>
             <p><ion-icon name="file-tray-full"></ion-icon> 1TB bande passante</p>
-            <a href="http://">Acheter</a>
+            <a href="{{ url('purchase') }}">Acheter</a>
         </div>
         <div class="server-info baie">
             <img src="{{ asset('img/serveur.png') }}" alt="">
             <p><ion-icon name="cloud"></ion-icon> 1 Baie</p>
             <p><ion-icon name="hardware-chip"></ion-icon> Sécuriser !</p>
             <p><ion-icon name="file-tray-full"></ion-icon> 1TB bande passante</p>
-            <a href="http://">Acheter</a>
+            <a href="{{ url('purchase') }}">Acheter</a>
 
         </div>
     </div>

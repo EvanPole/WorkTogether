@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkTogether</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main-page.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/purchase-page.css') }}">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
         <div class="nav-bar">
             <p class="title">WorkTogether</p>
             <ul>
-                <li><a href="http://"><img src="{{ asset('img/serveur.png') }}">Serveurs</a></li>
+                <li><a href="{{ url('') }}"><img src="{{ asset('img/serveur.png') }}">Offres</a></li>
                 <li><a href="http://"><img src="{{ asset('img/une-entente.png') }}">Partenaire</a></li>
             </ul>
             <a class="client" href="/login">Espace Client</a>
@@ -24,16 +25,6 @@
                 <h2>Nom du produit</h2>
                 <p>Description du produit et ses caractéristiques.</p>
                 <p>Prix: $XX.XX</p>
-            </div>
-
-            <!-- Informations de livraison -->
-            <div class="delivery-details">
-                <h2>Informations de livraison</h2>
-                <label for="address">Adresse de livraison:</label>
-                <input type="text" id="address" name="address" required>
-                <label for="city">Ville:</label>
-                <input type="text" id="city" name="city" required>
-                <!-- Ajoutez d'autres champs pour les informations de livraison si nécessaire -->
             </div>
 
             <!-- Informations de paiement -->
