@@ -32,17 +32,17 @@
             <p><ion-icon name="cloud"></ion-icon> 1 Rac</p>
             <p><ion-icon name="hardware-chip"></ion-icon> Sécuriser !</p>
             <p><ion-icon name="file-tray-full"></ion-icon> 1TB bande passante</p>
-            <a href="{{ url('purchase') }}">Acheter</a>
+            <a href="{{ route('purchase', ['service' => 'rac']) }}">Acheter</a>
         </div>
         <div class="server-info baie">
             <img src="{{ asset('img/serveur.png') }}" alt="">
             <p><ion-icon name="cloud"></ion-icon> 1 Baie</p>
             <p><ion-icon name="hardware-chip"></ion-icon> Sécuriser !</p>
             <p><ion-icon name="file-tray-full"></ion-icon> 1TB bande passante</p>
-            <a href="{{ url('purchase') }}">Acheter</a>
-
+            <a href="{{ route('purchase', ['service' => 'baie']) }}">Acheter</a>
         </div>
     </div>
+
 </body>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

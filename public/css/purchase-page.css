@@ -57,3 +57,16 @@ button[type="submit"]:hover {
 .payment-details label {
     margin-top: 10px;
 }
+
+
+
+/* payment  */
+.payment-methode {
+    display: flex;
+    width: fit-content;
+    margin: 5px;
+}
+
+.payment-methode button{
+    margin: 5px;
+}
