@@ -123,6 +123,9 @@ body::before {
 
 .main-container .brand h1 span {
     font-family: 'Super Brigade', sans-serif;
+    color: white;
+
+    -webkit-text-stroke: 1px var(--var-grey);
     font-size: 50px;
     margin-right: 8px;
 }
@@ -171,18 +174,7 @@ body::before {
     vertical-align: sub;
 }
 
-.info .free::before {
-    align-items: normal;
-    content: "Gratuit";
-    position: absolute;
-    display: block;
-    rotate: -35deg;
-    background: var(--var-gold);
-    padding: 3px 7px;
-    border-radius: 3px;
-    top: -10px;
-    left: -25px;
-}
+
 
 .info .free a {
     background: var(--var-gold);
@@ -200,18 +192,6 @@ body::before {
     border-radius: 6px;
 }
 
-.info .prime::before {
-    align-items: normal;
-    content: "70€ / mois";
-    position: absolute;
-    display: block;
-    rotate: -35deg;
-    background: var(--var-gold);
-    padding: 3px 7px;
-    border-radius: 3px;
-    top: -6px;
-    left: -35px;
-}
 
 .info .baie a {
     background: var(--var-gold);
@@ -221,28 +201,3 @@ body::before {
     border-radius: 6px;
 }
 
-.info .baie::before {
-    align-items: normal;
-    content: "70€ / mois";
-    position: absolute;
-    display: block;
-    rotate: -35deg;
-    background: var(--var-gold);
-    padding: 3px 7px;
-    border-radius: 3px;
-    top: -6px;
-    left: -35px;
-}
-
-.info .baie::before {
-    align-items: normal;
-    content: "150€ / mois";
-    position: absolute;
-    display: block;
-    rotate: -35deg;
-    background: var(--var-gold);
-    padding: 3px 7px;
-    border-radius: 3px;
-    top: -6px;
-    left: -35px;
-}
