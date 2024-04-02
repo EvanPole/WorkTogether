@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bay;
 use App\Models\Order;
+use App\Models\Rack;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -17,6 +19,11 @@ class ProcessController extends Controller
         //     'purchase_option' => 'required',
         //     'custom_duration' => 'required|numeric|min:1',
         // ]);
+        
+
+        $rack = Rack::all();
+        $bay = Bay::all();
+        dd($rack);
 
         $process = new Order();
         $process->user_id = Auth::user()->id;
