@@ -19,7 +19,8 @@
             </ul>
             <a class="client" href="/login">Espace Client</a>
         </div>
-        <form action="/process" method="POST" id="purchase-form">
+        <form action="{{ route('process.store') }}" method="POST" id="purchase-form">
+            @csrf
             <div class="product-details">
                 <h2>{{ $service }}</h2>
                 <p>{{ $desc }}</p>

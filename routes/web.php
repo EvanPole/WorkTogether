@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProcessController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
@@ -25,6 +26,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/purchase/{service}', [PurchaseController::class, 'purchase'])->name('purchase');
 Route::resource('purchase', PurchaseController::class);
+
+Route::resource('process', ProcessController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -9,7 +9,7 @@ class ProcessController extends Controller
 {
     public function store(Request $request)
     {
-
+        // dd($request);
         $validatedData = $request->validate([
             'purchase_option' => 'required',
             'custom_duration' => 'required|numeric|min:1',
