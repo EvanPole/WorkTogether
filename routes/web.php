@@ -23,10 +23,12 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard/status', function () {
+    return view('dashboard.status');
+})->middleware(['auth', 'verified'])->name('status');
 
 Route::get('/purchase/{service}', [PurchaseController::class, 'purchase'])->name('purchase');
 Route::resource('purchase', PurchaseController::class);
-
 Route::resource('process', ProcessController::class);
 
 Route::middleware('auth')->group(function () {
