@@ -14,12 +14,12 @@ class PurchaseController extends Controller
         switch ($service) {
             case 'rac':
                 $service = 'Rac';
-                $price = 70;
+                $price = 100;
                 $desc = 'Location d\'un rac dans l\'une de nos baie';
                 break;
             case 'baie':
                 $service = 'Baie';
-                $price = 150;
+                $price = 100;
                 $desc = 'Location de 42Uniter de stockage soit une baie entière ';
                 break;
             default:
