@@ -17,10 +17,23 @@ class RackSeeder extends Seeder
     {
         $bays = Bay::all();
 
+        // Initialiser le compteur
+        $count = 1;
+
         foreach ($bays as $bay) {
-            Rack::factory()->count(42)->create([
-                'bay_id' => $bay->id,
-            ]);
+            for ($i = 1; $i <= 42; $i++) {
+
+                Rack::factory()->create([
+                    'bay_id' => $bay->id,
+                    'rack_id' => $count,
+                ]);
+
+                $count++;
+
+                if ($count > 42) {
+                    $count = 1;
+                }
+            }
         }
     }
 }
