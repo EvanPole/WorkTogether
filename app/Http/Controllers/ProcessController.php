@@ -14,16 +14,25 @@ class ProcessController extends Controller
 {
     public function store(Request $request)
     {
+        
+        // Récupérer tous les racks non utilisés
+        $racksNonUtilises = Rack::whereNull('end_date')
+            ->orWhere('end_date', '<', Carbon::now())
+            ->get();
+        
+        
+        // Maintenant, vous pouvez assigner un rack parmi les racks non utilisés
+        if ($racksNonUtilises->isNotEmpty()) {
+            $rackAssigner = $racksNonUtilises->first();
+            // achat du rack en qestion
+        } else {
+            // Aucun rack disponible pour l'assignation
+        }
+        
 
-        $rackAcheter = 2;
-        $racksParBay = 2;
-        
-        $bays = Bay::all();
-        $dateActuelle = Carbon::now();
-        
-        
 
-        dd("d");
+
+
         $process = new Order();
         $process->user_id = Auth::user()->id;
         $process->rack_id = 1;
