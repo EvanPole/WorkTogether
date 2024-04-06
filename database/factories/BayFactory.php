@@ -25,4 +25,3 @@ class BayFactory extends Factory
         ];
     }
 }
-// php artisan db:seed --class=BaySeeder
