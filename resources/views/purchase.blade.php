@@ -30,10 +30,10 @@
             <div class="purchase-options">
                 <h2>Options d'achat</h2>
                 <select name="purchase_option" id="purchase-option">
-                    <option value="100">Offre Base - 1 unité - 100 €</option>
-                    <option value="810">Offre Start-up - 10 unités - 900 € (-10%)</option>
-                    <option value="1344">Offre PME - 21 unités - 1 680 € (-20%)</option>
-                    <option value="2058">Offre Entreprise - 42 unités - 2 940 € (-30%)</option>
+                    <option value="1">Offre Base - 1 unité - 100 €</option>
+                    <option value="10">Offre Start-up - 10 unités - 900 € (-10%)</option>
+                    <option value="21">Offre PME - 21 unités - 1 680 € (-20%)</option>
+                    <option value="42">Offre Entreprise - 42 unités - 2 940 € (-30%)</option>
                 </select>
             </div>
 

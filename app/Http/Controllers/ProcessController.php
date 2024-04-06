@@ -14,24 +14,31 @@ class ProcessController extends Controller
 {
     public function store(Request $request)
     {
+
+
+        $racks_duration = $request["custom_duration"];
+        $racks_numbers = $request["purchase_option"];
+        echo($racks_numbers);
+        for ($i = 0; $i < $racks_numbers; $i++) {
+            $racksNonUtilises = Rack::whereNull('end_date')
+                ->orWhere('end_date', '<', Carbon::now())
+                ->get();
         
-        // Récupérer tous les racks non utilisés
-        $racksNonUtilises = Rack::whereNull('end_date')
-            ->orWhere('end_date', '<', Carbon::now())
-            ->get();
+            if ($racksNonUtilises->isNotEmpty()) {
+                $rackAssigner = $racksNonUtilises->first();
+
+                $rackAssigner->user_id = Auth::user()->id;
+                $rackAssigner->end_date = Carbon::now()->addMonths($racks_duration);
+                $rackAssigner->save();
         
-        
-        // Maintenant, vous pouvez assigner un rack parmi les racks non utilisés
-        if ($racksNonUtilises->isNotEmpty()) {
-            $rackAssigner = $racksNonUtilises->first();
-            // achat du rack en qestion
-        } else {
-            // Aucun rack disponible pour l'assignation
+                echo ($rackAssigner);
+            } else {
+                exit("Il n'y a plus de places disponibles");
+            }
         }
         
 
-
-
+        dd("s");
 
         $process = new Order();
         $process->user_id = Auth::user()->id;
