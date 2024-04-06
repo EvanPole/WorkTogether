@@ -36,9 +36,11 @@ class ProcessController extends Controller
                 exit("Il n'y a plus de places disponibles");
             }
         }
-        
 
-        dd("s");
+
+        $allracksinfo = Rack::Where('user_id', '==', Auth::user()->id);
+
+        return view('dashboard.dashboard', compact('allracksinfo'));
 
         $process = new Order();
         $process->user_id = Auth::user()->id;

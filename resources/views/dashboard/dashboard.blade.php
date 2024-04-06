@@ -38,30 +38,27 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h2>Vos services</h2>
-
                     <table>
                         <tr>
+                            <th>Bay</th>
+                            <th>Rack</th>
                             <th>Nom</th>
-                            <th>Etat</th>
-                            <th>Type</th>
-                            <th>Emplacement</th>
+                            <th>Date d'expiration</th>
+                            <th>Options</th>
                         </tr>
-                        <tr style="background: #ff4b4b84;">
-                            <td>SErveur Solkde</td>
-                            <td>OK</td>
-                            <td>Web</td>
-                            <td>D345</td>
-                        </tr>
-                        <tr>
-                            <td>DLEf fejks f</td>
-                            <td>OK</td>
-                            <td>DB</td>
-                            <td>D345</td>
-                        </tr>
-                        <!-- Ajoutez plus de lignes selon les besoins -->
+                        @foreach ($allracksinfo as $rack)
+                            <tr>
+                                <td>{{ $rack->bay_id }}</td>
+                                <td>U{{ $rack->rack_id }}</td>
+                                <td>{{ $rack->rack_name }}</td>
+                                <td>{{ $rack->end_date }}</td>
+                                <td>🛠️</td>
+                            </tr>
+                        @endforeach
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
 </x-app-layout>
