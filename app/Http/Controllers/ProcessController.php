@@ -19,29 +19,23 @@ class ProcessController extends Controller
         $racks_duration = $request["custom_duration"];
         $racks_numbers = $request["purchase_option"];
         $discount = 0;
+        $price = 100;
         switch ($racks_numbers) {
             case 1:
-                dd($racks_numbers);
                 $price = 100;
                 $discount = 0;
                 break;
             case 10:
                 $price = 900;
                 $discount = 10;
-
-                dd($racks_numbers);
                 break;
             case 21:
                 $price = 1680;
                 $discount = 20;
-
-                dd($racks_numbers);
                 break;
             case 42:
                 $price = 2940;
                 $discount = 30;
-
-                dd($racks_numbers);
                 break;
             default:
                 break;
@@ -65,9 +59,10 @@ class ProcessController extends Controller
 
                 $process = new Order();
                 $process->user_id = Auth::user()->id;
-                $process->rack_id = $rackAssigner->id;
-                $process->price = 10;
-                $process->discount = "1";
+                $process->rack_id = $rackAssigner->rack_id;
+                $process->bay_id = $rackAssigner->bay_id;
+                $process->price = $price;
+                $process->discount = $discount;
                 $process->start_date = Carbon::now();
                 $process->end_date = Carbon::now()->addMonths($racks_duration);
                 $process->save();
