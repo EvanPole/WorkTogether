@@ -31,9 +31,15 @@ Route::get('/dashboard/status', function () {
     return view('dashboard.status');
 })->middleware(['auth', 'verified'])->name('status');
 
-Route::get('/dashboard/editrack/{id}', [DashboardController::class, 'edit'], function () {
+Route::get('/dashboard/editrack/{id}/edit', [DashboardController::class, 'edit'], function () {
     return view('dashboard.editrack');
 })->middleware(['auth', 'verified'])->name('editrack');
+
+Route::post('/dashboard/editrack/{id}/update', [DashboardController::class, 'update'], function () {
+    return view('dashboard.status');
+})->middleware(['auth', 'verified'])->name('editracksave');
+
+
 
 Route::get('/purchase/{service}', [PurchaseController::class, 'purchase'])->name('purchase');
 Route::resource('purchase', PurchaseController::class);

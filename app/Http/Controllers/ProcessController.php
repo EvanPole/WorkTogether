@@ -15,11 +15,12 @@ class ProcessController extends Controller
     public function store(Request $request)
     {
 
-
         $racks_duration = $request["custom_duration"];
         $racks_numbers = $request["purchase_option"];
+
         $discount = 0;
         $price = 100;
+
         switch ($racks_numbers) {
             case 1:
                 $price = 100;

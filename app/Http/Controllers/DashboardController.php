@@ -15,7 +15,15 @@ class DashboardController extends Controller
 
     public function edit($id) {
         $info = Rack::where('id', $id)->get();
+        return view('dashboard.editrack', compact('info','id'));
+    }
 
-        return view('dashboard.editrack', compact('info'));
+    public function update(Request $request, $id) {
+        $info = Rack::findOrFail($id);
+
+        $info->rack_name = $request->input("info");
+        $info->rack_color = $request->input("color");
+        $info->save();
+        return redirect()->back();
     }
 }
