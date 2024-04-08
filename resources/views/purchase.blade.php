@@ -98,16 +98,16 @@
                         discount = 0;
                         break;
                     case 10:
-                        price = 900
+                        price = 900;
                         discount = 10;
                         break;
                     case 21:
-                        price = 1680
+                        price = 1680;
                         discount = 20;
 
                         break;
                     case 42:
-                        price = 2940
+                        price = 2940;
                         discount = 30;
                         break;
                     default:
@@ -118,7 +118,8 @@
                 if (duration >= 12) {
                     discount += 20
                 }
-                price = price * duration
+
+                price = price * duration;
                 totalPrice.textContent = price;
                 discountPrice.textContent = discount;
                 let calculatedPrice = price - (discount * price / 100);
