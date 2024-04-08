@@ -31,6 +31,10 @@ Route::get('/dashboard/status', function () {
     return view('dashboard.status');
 })->middleware(['auth', 'verified'])->name('status');
 
+Route::get('/dashboard/editrack', function () {
+    return view('dashboard.editrack');
+})->middleware(['auth', 'verified'])->name('editrack');
+
 Route::get('/purchase/{service}', [PurchaseController::class, 'purchase'])->name('purchase');
 Route::resource('purchase', PurchaseController::class);
 Route::resource('process', ProcessController::class);

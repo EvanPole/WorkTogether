@@ -12,4 +12,8 @@ class DashboardController extends Controller
         $allracksinfo = Rack::where('user_id', Auth::user()->id)->get();
         return view('dashboard.dashboard', compact('allracksinfo'));
     }
+
+    public function edit() {
+
+    }
 }
