@@ -18,39 +18,69 @@ class ProcessController extends Controller
 
         $racks_duration = $request["custom_duration"];
         $racks_numbers = $request["purchase_option"];
-        echo($racks_numbers);
+        $discount = 0;
+        switch ($racks_numbers) {
+            case 1:
+                dd($racks_numbers);
+                $price = 100;
+                $discount = 0;
+                break;
+            case 10:
+                $price = 900;
+                $discount = 10;
+
+                dd($racks_numbers);
+                break;
+            case 21:
+                $price = 1680;
+                $discount = 20;
+
+                dd($racks_numbers);
+                break;
+            case 42:
+                $price = 2940;
+                $discount = 30;
+
+                dd($racks_numbers);
+                break;
+            default:
+                break;
+        }
+        if ($racks_duration < 12) {
+            $discount += 20;
+        }
+
+        echo ($racks_numbers);
         for ($i = 0; $i < $racks_numbers; $i++) {
             $racksNonUtilises = Rack::whereNull('end_date')
                 ->orWhere('end_date', '<', Carbon::now())
                 ->get();
-        
+
             if ($racksNonUtilises->isNotEmpty()) {
                 $rackAssigner = $racksNonUtilises->first();
 
                 $rackAssigner->user_id = Auth::user()->id;
                 $rackAssigner->end_date = Carbon::now()->addMonths($racks_duration);
                 $rackAssigner->save();
-        
+
+                $process = new Order();
+                $process->user_id = Auth::user()->id;
+                $process->rack_id = $rackAssigner->id;
+                $process->price = 10;
+                $process->discount = "1";
+                $process->start_date = Carbon::now();
+                $process->end_date = Carbon::now()->addMonths($racks_duration);
+                $process->save();
+
+
                 echo ($rackAssigner);
             } else {
                 exit("Il n'y a plus de places disponibles");
             }
         }
 
-
         $allracksinfo = Rack::Where('user_id', '==', Auth::user()->id);
 
         return view('dashboard.dashboard', compact('allracksinfo'));
-
-        $process = new Order();
-        $process->user_id = Auth::user()->id;
-        $process->rack_id = 1;
-        $process->price = 10;
-        $process->discount = "1";
-        $process->start_date = Carbon::now();
-        $process->end_date = Carbon::now();
-        $process->save();
-
-        return view('dashboard.index');
     }
 }
