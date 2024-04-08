@@ -13,7 +13,9 @@ class DashboardController extends Controller
         return view('dashboard.dashboard', compact('allracksinfo'));
     }
 
-    public function edit() {
+    public function edit($id) {
+        $info = Rack::where('id', $id)->get();
 
+        return view('dashboard.editrack', compact('info'));
     }
 }

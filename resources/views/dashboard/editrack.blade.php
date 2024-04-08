@@ -12,9 +12,9 @@
                     <h1>Modification dus Serveur : XX XX </h1>
                     @csrf
                     <form action="" method="post" style="display: block; width: 200px; margin: 0 auto;">
-                        <input type="color" id="head" name="head" value="#e66465" />
+                        <input type="color" id="head" value="{{ $info[0]->rack_color }}" />
 
-                        <input type="text" name="info">
+                        <input type="text" value="{{ $info[0]->rack_name}}">
 
                         <button type="submit">Save</button>
                     </form>

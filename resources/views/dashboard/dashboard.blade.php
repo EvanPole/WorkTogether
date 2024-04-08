@@ -52,7 +52,7 @@
                                 <td>U{{ $rack->rack_id }}</td>
                                 <td>{{ $rack->rack_name }}</td>
                                 <td>{{ $rack->end_date }}</td>
-                                <td>🛠️</td>
+                                <td><a href="{{ route('editrack', ['id' => $rack->id]) }}">🛠️</a></td>
                             </tr>
                         @endforeach
                     </table>

@@ -31,7 +31,7 @@ Route::get('/dashboard/status', function () {
     return view('dashboard.status');
 })->middleware(['auth', 'verified'])->name('status');
 
-Route::get('/dashboard/editrack', function () {
+Route::get('/dashboard/editrack/{id}', [DashboardController::class, 'edit'], function () {
     return view('dashboard.editrack');
 })->middleware(['auth', 'verified'])->name('editrack');
 
