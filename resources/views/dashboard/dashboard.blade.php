@@ -47,7 +47,7 @@
                             <th>Options</th>
                         </tr>
                         @foreach ($allracksinfo as $rack)
-                            <tr>
+                            <tr style="background: {{ $rack->rack_color }};">
                                 <td>{{ $rack->bay_id }}</td>
                                 <td>U{{ $rack->rack_id }}</td>
                                 <td>{{ $rack->rack_name }}</td>
