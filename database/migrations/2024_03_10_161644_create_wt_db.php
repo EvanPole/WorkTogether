@@ -23,7 +23,10 @@ return new class extends Migration
         Schema::create('racks', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Bay::class);
-            $table->char('rack_name', 3);
+            $table->integer('rack_id', 2);
+            $table->foreignIdFor(User::class);
+            $table->char('rack_name', 150);
+            $table->char('rack_color', 15);
             $table->timestamps();
         });
 
@@ -33,7 +36,7 @@ return new class extends Migration
             $table->char('description', 255);
             $table->integer('rack_qty');
             $table->float('price');
-
+            $table->float('discount');
             $table->timestamps();
         });
 
