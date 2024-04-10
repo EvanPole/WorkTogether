@@ -23,10 +23,10 @@ return new class extends Migration
         Schema::create('racks', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Bay::class);
-            $table->integer('rack_id', 2);
-            $table->foreignIdFor(User::class);
-            $table->char('rack_name', 150);
-            $table->char('rack_color', 15);
+            $table->integer('rack_id');
+            $table->foreignIdFor(User::class)->nullable();
+            $table->char('rack_name', 150)->nullable();
+            $table->char('rack_color', 15)->nullable();
             $table->timestamps();
         });
 
