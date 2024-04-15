@@ -37,7 +37,7 @@
         <!-- postalcode -->
         <div class="mt-4">
             <x-input-label for="postalcode" :value="__('postalcode')" />
-            <x-text-input id="postalcode" class="block mt-1 w-full" type="text" name="postalcode"
+            <x-text-input id="postalcode" class="block mt-1 w-full" type="number" name="postalcode"
                 :value="old('postalcode')" required autofocus autocomplete="postalcode" />
             <x-input-error :messages="$errors->get("postalcode")" class="mt-2" />
         </div>
