@@ -17,7 +17,6 @@
                         <input type="color" name="color" id="head" value="{{ $info[0]->rack_color }}" />
                         <input type="text" name="info" value="{{ $info[0]->rack_name }}">
                         <button type="submit">Save</button>
-
                     </form>
                 </div>
             </div>
