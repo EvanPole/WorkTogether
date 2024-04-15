@@ -52,6 +52,15 @@ return new class extends Migration
             $table->date('end_date');
             $table->timestamps();
         });
+
+        Schema::create('status', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Rack::class);
+            $table->foreignIdFor(Bay::class);
+            $table->date('end_date');
+            $table->text('info');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -63,5 +72,6 @@ return new class extends Migration
         Schema::dropIfExists('racks');
         Schema::dropIfExists('offers');
         Schema::dropIfExists('orders');
+        Schema::dropIfExists('status');
     }
 };

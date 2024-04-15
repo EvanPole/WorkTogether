@@ -5,6 +5,7 @@ use App\Http\Controllers\ProcessController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\StatusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::post('/dashboard/editrack/{id}/update', [DashboardController::class, 'upd
     return view('dashboard.status');
 })->middleware(['auth', 'verified'])->name('editracksave');
 
+Route::get('/api/status', [StatusController::class, 'index'])->name('apistatus');
 
 
 Route::get('/purchase/{service}', [PurchaseController::class, 'purchase'])->name('purchase');

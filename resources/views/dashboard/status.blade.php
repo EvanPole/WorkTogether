@@ -37,22 +37,35 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h2>Etat des services</h2>
-                    <table>
+                    <table id="etatServicesTable">
                         <tr>
-                            <th>Secteur</th>
+                            <th>Bay</th>
                             <th>Etat</th>
-                            <th>Type</th>
-                            <th>Emplacement</th>
-                        </tr>
-                        <tr>
-                            <td>DLEf fejks f</td>
-                            <td>OK</td>
-                            <td>DB</td>
-                            <td>D345</td>
+                            <th>Informations</th>
                         </tr>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('{{ route('apistatus') }}')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('etatServicesTable');
+                    data.forEach(service => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${service.bay_id}</td>
+                            <td>Maintenance</td>
+                            <td>${service.info}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Erreur lors de la récupération des données :', error));
+        });
+    </script>
 </x-app-layout>
