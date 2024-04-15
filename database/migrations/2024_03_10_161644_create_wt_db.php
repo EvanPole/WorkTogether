@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->nullable();
             $table->char('rack_name', 150)->nullable();
             $table->char('rack_color', 15)->nullable();
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
 
@@ -44,6 +45,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Rack::class);
+            $table->foreignIdFor(Bay::class);
             $table->float('price');
             $table->integer('discount');
             $table->date('start_date');
