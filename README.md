@@ -8,3 +8,4 @@ php artisan db:seed --class=BaySeeder
 
 php artisan db:seed --class=RackSeeder
 
+php artisan db:seed --class=OrderSeeder
