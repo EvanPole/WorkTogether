@@ -43,7 +43,7 @@ Route::post('/dashboard/editrack/{id}/update', [DashboardController::class, 'upd
 Route::get('/api/status', [StatusController::class, 'index'])->name('apistatus');
 
 
-Route::get('/purchase/{service}', [PurchaseController::class, 'purchase'])->name('purchase');
+
 Route::resource('purchase', PurchaseController::class);
 Route::resource('process', ProcessController::class);
 

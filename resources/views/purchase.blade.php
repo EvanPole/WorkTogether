@@ -22,20 +22,20 @@
         <form action="{{ route('process.store') }}" method="POST" id="purchase-form">
             @csrf
             <div class="product-details">
-                <h2>{{ $service }}</h2>
-                <p>{{ $desc }}</p>
-                <p>Prix: <span id="total-price">{{ $price }}</span> €</p>
+                <h2>Location de racs dans notre data center</h2>
+                <p>Racs</p>
+                <p>Prix: <span id="total-price">100</span> €</p>
                 <p>Réduction: - <span id="discount-price">0</span> %</p>
-                <p>Total: <span id="finish-price">{{ $price }}</span> €</p>
+                <p>Total: <span id="finish-price">100</span> €</p>
             </div>
 
             <div class="purchase-options">
                 <h2>Options d'achat</h2>
                 <select name="purchase_option" id="purchase-option">
-                    <option value="1">Offre Base - 1 unité - 100 €</option>
-                    <option value="10">Offre Start-up - 10 unités - 900 € (-10%)</option>
-                    <option value="21">Offre PME - 21 unités - 1 680 € (-20%)</option>
-                    <option value="42">Offre Entreprise - 42 unités - 2 940 € (-30%)</option>
+                    @foreach ($offers as $offer)
+                        <option value="{{ $offer->rack_qty }}">{{ $offer->title }} \ {{ $offer->description }} - {{ $offer->price }} € (-{{ $offer->discount }}%)</option>
+                    @endforeach
+
                 </select>
             </div>
 
@@ -74,7 +74,6 @@
             @endauth
         </form>
     </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const purchaseOption = document.getElementById("purchase-option");
@@ -93,23 +92,13 @@
                 let price = 100;
                 let discount = 0;
                 switch (optionPrice) {
-                    case 1:
-                        price = 100;
-                        discount = 0;
+                    @foreach ($offers as $offer)
+                    case {{ $offer->rack_qty }}:
+                        price = {{ $offer->price }};
+                        discount = {{ $offer->discount }};
                         break;
-                    case 10:
-                        price = 900;
-                        discount = 10;
-                        break;
-                    case 21:
-                        price = 1680;
-                        discount = 20;
+                    @endforeach
 
-                        break;
-                    case 42:
-                        price = 2940;
-                        discount = 30;
-                        break;
                     default:
                         break;
                 }
